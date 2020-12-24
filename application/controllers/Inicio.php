@@ -17,10 +17,9 @@ class Inicio extends CI_Controller {
         if ($this->auth_ad->login($username, $password)) {
 
             $this->cargar_buscador();
-            $this->eventos->registrar('Inicio  de sesion',$this->session->userdata('username'));
+            //$this->eventos->registrar('Inicio  de sesion',$this->session->userdata('username'));
         } else {
 
-            
             header("Location: " . base_url());
             
         }
@@ -30,7 +29,7 @@ class Inicio extends CI_Controller {
 
         if (!is_null($this->session->userdata('username'))) {
 
-            $data['contenido'] = 'buscador';
+            $data['contenido'] = 'fechasteletrabajo';
             $this->load->view('plantilla/template', $data);
         } else {
             header("Location: " . base_url());

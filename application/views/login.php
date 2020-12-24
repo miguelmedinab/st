@@ -47,10 +47,10 @@
                 <div class="tx-center mg-b-60">Suite de Teletrabajo</div>
 <?php echo form_open(base_url() . 'inicio/autenticar'); ?>
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Enter your username">
+                    <input type="text" class="form-control" placeholder="Enter your username" id="usuario" name="usuario">
                 </div><!-- form-group -->
                 <div class="form-group">
-                    <input type="password" class="form-control" placeholder="Enter your password">
+                    <input type="password" class="form-control" placeholder="Enter your password" id="password" name="password">
                     <!--<a href="" class="tx-info tx-12 d-block mg-t-10">Forgot password?</a>-->
                 </div><!-- form-group -->
                 <button type="submit" class="btn btn-info btn-block">Ingresar</button>
