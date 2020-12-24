@@ -16,7 +16,7 @@ class Inicio extends CI_Controller {
 
         if ($this->auth_ad->login($username, $password)) {
 
-            $this->cargar_buscador();
+            $this->cargar_resumen();
             //$this->eventos->registrar('Inicio  de sesion',$this->session->userdata('username'));
         } else {
 
@@ -25,11 +25,24 @@ class Inicio extends CI_Controller {
         }
     }
 
-    public function cargar_buscador() {
+    public function cargar_resumen() {
 
         if (!is_null($this->session->userdata('username'))) {
 
             $data['contenido'] = 'fechasteletrabajo';
+            $data['menuact']=1;
+            $this->load->view('plantilla/template', $data);
+        } else {
+            header("Location: " . base_url());
+        }
+    }
+    
+    public function actividad() {
+
+        if (!is_null($this->session->userdata('username'))) {
+
+            $data['contenido'] = 'actividad';
+            $data['menuact']=2;
             $this->load->view('plantilla/template', $data);
         } else {
             header("Location: " . base_url());
