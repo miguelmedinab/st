@@ -1,8 +1,7 @@
 <div class="br-pagebody">
     <div class="br-section-wrapper">
         <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10">Actividades de Teletrabajo</h6>
-        
-        <a href="" class="btn btn-primary tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium" data-toggle="modal" data-target="#modaldemo1">View Live Demo</a>
+        <a href="" class="btn btn-primary tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium" data-toggle="modal" data-target="#modaldemo1">Agregar</a>
         <p class="mg-b-25 mg-lg-b-50"></p> 
         <div class="table-wrapper">
             <table id="datatable1" class="table display responsive nowrap">
@@ -483,14 +482,54 @@
     <div class="modal-dialog modal-dialog-vertical-center" role="document">
         <div class="modal-content bd-0 tx-14">
             <div class="modal-header pd-y-20 pd-x-25">
-                <h6 class="tx-14 mg-b-0 tx-uppercase tx-inverse tx-bold">Message Preview</h6>
+                <h6 class="tx-14 mg-b-0 tx-uppercase tx-inverse tx-bold">Registro de Actividad</h6>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body pd-25">
-                <h4 class="lh-3 mg-b-20"><a href="" class="tx-inverse hover-primary">Why We Use Electoral College, Not Popular Vote</a></h4>
-                <p class="mg-b-5">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. </p>
+                <!--<div class="form-layout form-layout-1">-->
+                <div class="row mg-b-25">
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label class="form-control-label">Firstname: <span class="tx-danger">*</span></label>
+                            <input class="form-control" type="text" name="firstname" value="John Paul" placeholder="Enter firstname">
+                        </div>
+                    </div><!-- col-4 -->
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label class="form-control-label">Lastname: <span class="tx-danger">*</span></label>
+                            <input class="form-control" type="text" name="lastname" value="McDoe" placeholder="Enter lastname">
+                        </div>
+                    </div><!-- col-4 -->
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label class="form-control-label">Email address: <span class="tx-danger">*</span></label>
+                            <input class="form-control" type="text" name="email" value="johnpaul@yourdomain.com" placeholder="Enter email address">
+                        </div>
+                    </div><!-- col-4 -->
+                    <div class="col-lg-8">
+                        <div class="form-group mg-b-10-force">
+                            <label class="form-control-label">Mail Address: <span class="tx-danger">*</span></label>
+                            <input class="form-control" type="text" name="address" value="Market St. San Francisco" placeholder="Enter address">
+                        </div>
+                    </div><!-- col-8 -->
+                    <div class="col-lg-4">
+                        <div class="form-group mg-b-10-force">
+                            <label class="form-control-label">Country: <span class="tx-danger">*</span></label>
+                            <select class="form-control select2" data-placeholder="Choose country">
+                                <option label="Choose country"></option>
+                                <option value="USA">United States of America</option>
+                                <option value="UK">United Kingdom</option>
+                                <option value="China">China</option>
+                                <option value="Japan">Japan</option>
+                            </select>
+                        </div>
+                    </div><!-- col-4 -->
+                <!--</div><!-- row -->
+
+               
+            </div><!-- form-layout -->
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium">Save changes</button>
