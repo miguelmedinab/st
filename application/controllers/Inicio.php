@@ -41,7 +41,7 @@ class Inicio extends CI_Controller {
 
         if (!is_null($this->session->userdata('username'))) {
 
-            $data['contenido'] = 'actividad';
+            $data['contenido'] = 'actividad_1';
             $data['menuact']=2;
             $this->load->view('plantilla/template', $data);
         } else {
