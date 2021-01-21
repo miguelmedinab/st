@@ -8,4 +8,4 @@ class Principal extends CI_Controller {
 	{
 		$this->load->view('fechasteletrabajo');
 	}
-}
+}  
