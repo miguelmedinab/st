@@ -17,7 +17,7 @@
             </div><!-- menu-item -->
         </a><!-- br-menu-link -->
         <ul class="br-menu-sub nav flex-column">
-            <li class="nav-item"><a href="<?php echo base_url('inicio/cargar_resumen')?>" class="nav-link <?php echo ($menuact==1)?'active':''; ?>">Resumen por dia</a></li>
+            <li class="nav-item"><a href="<?php echo base_url('inicio/fechas')?>" class="nav-link <?php echo ($menuact==1)?'active':''; ?>">Informes por Fecha</a></li>
             <li class="nav-item"><a href="<?php echo base_url('inicio/actividad')?>" class="nav-link <?php echo ($menuact==2)?'active':''; ?>">Registrar Actividad</a></li>
             
         </ul>     
