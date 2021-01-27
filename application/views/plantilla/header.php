@@ -37,19 +37,19 @@
         <link href="../lib/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
         <link href="../lib/jquery-switchbutton/jquery.switchButton.css" rel="stylesheet">
         <link href="../lib/highlightjs/github.css" rel="stylesheet">
-         <link href="../lib/datatables/jquery.dataTables.css" rel="stylesheet">
-    <link href="../lib/select2/css/select2.min.css" rel="stylesheet">
+        <link href="../lib/datatables/jquery.dataTables.css" rel="stylesheet">
+        <link href="../lib/select2/css/select2.min.css" rel="stylesheet">
 
         <!-- Bracket CSS -->
         <link rel="stylesheet" href="../css/bracket.css">
     </head>
-        <body>
+    <body>
 
         <!-- ########## START: LEFT PANEL ########## -->
         <div class="br-logo"><a href=""><span>[</span>ST<span>]</span></a></div>
         <?php include 'menu.php'; ?>
 
-                <!-- ########## START: HEAD PANEL ########## -->
+        <!-- ########## START: HEAD PANEL ########## -->
         <div class="br-header">
             <div class="br-header-left">
                 <div class="navicon-left hidden-md-down"><a id="btnLeftMenu" href=""><i class="icon ion-navicon-round"></i></a></div>
@@ -63,32 +63,32 @@
             </div><!-- br-header-left -->
             <div class="br-header-right">
                 <nav class="nav">
-                    
-                    
+
+
                     <div class="dropdown">
                         <a href="" class="nav-link nav-link-profile" data-toggle="dropdown">
-                            <span class="logged-name hidden-md-down">Katherine</span>
+                            <span class="logged-name hidden-md-down"><?php echo $this->session->userdata('cn') ?><br><?php echo $this->session->userdata('title') ?><br><?php echo $this->session->userdata('department') ?></span>
                             <img src="http://via.placeholder.com/64x64" class="wd-32 rounded-circle" alt="">
                             <span class="square-10 bg-success"></span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-header wd-200">
                             <ul class="list-unstyled user-profile-nav">
-                                
-                                <li><a href=""><i class="icon ion-power"></i> Salir</a></li>
+
+                                <li><a href="<?php echo base_url('inicio/salir')?>"><i class="icon ion-power"></i> Salir</a></li>
                             </ul>
                         </div><!-- dropdown-menu -->
                     </div><!-- dropdown -->
                 </nav>
-               
+
             </div><!-- br-header-right -->
         </div><!-- br-header -->
         <!-- ########## END: HEAD PANEL ########## -->
 
         <!-- ########## START: RIGHT PANEL ########## -->
-       
+
         <!-- ########## END: RIGHT PANEL ########## --->
         <!-- ########## START: MAIN PANEL ########## -->
-<div class="br-mainpanel">
+        <div class="br-mainpanel">
 
-    <div class="pd-x-20 pd-sm-x-30 pd-t-20 pd-sm-t-5">
-    </div>
+            <div class="pd-x-20 pd-sm-x-30 pd-t-20 pd-sm-t-5">
+            </div>
