@@ -138,11 +138,36 @@ class Inicio extends CI_Controller {
         if (!is_null($this->session->userdata('username'))) {
             $data['contenido'] = 'lista_supervisados';
             $data['menuact'] = 3;
-            $data['fechas'] = $this->M_admin->obtener_supervisados($this->session->userdata('username'));
+            $data['supervisados'] = $this->M_admin->obtener_supervisados($this->session->userdata('username'));
             $this->load->view('plantilla/template', $data);
         } else {
             header("Location: " . base_url());
         }
     }
+    
+    public function lfs($funcionario) {
+        if (!is_null($this->session->userdata('username'))) {
+            $data['contenido'] = 'acordeon_actividades';
+            $data['menuact'] = 1;
+            $data['funcionario'] = $funcionario;
+            $data['fechas'] = $this->M_admin->obtener_fechas_informe($funcionario);
+            $this->load->view('plantilla/template', $data);
+        } else {
+            header("Location: " . base_url());
+        }
+    }
+    
+    public function ap_re($id_act) {
+        if (!is_null($this->session->userdata('username'))) {
+            //$data['contenido'] = 'acordeon_actividades';
+            //$data['menuact'] = 1;
+            //$data['funcionario'] = $funcionario;
+            //$data['fechas'] = $this->M_admin->obtener_fechas_informe($funcionario);
+            //$this->load->view('plantilla/template', $data);
+        } else {
+            header("Location: " . base_url());
+        }
+    }
+    
 
 }

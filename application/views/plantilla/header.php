@@ -32,16 +32,16 @@
         <title>Suite de Teletrabajo</title>
 
         <!-- vendor css -->
-        <link href="../lib/font-awesome/css/font-awesome.css" rel="stylesheet">
-        <link href="../lib/Ionicons/css/ionicons.css" rel="stylesheet">
-        <link href="../lib/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
-        <link href="../lib/jquery-switchbutton/jquery.switchButton.css" rel="stylesheet">
-        <link href="../lib/highlightjs/github.css" rel="stylesheet">
-        <link href="../lib/datatables/jquery.dataTables.css" rel="stylesheet">
-        <link href="../lib/select2/css/select2.min.css" rel="stylesheet">
+        <link href="<?php echo base_url() ?>lib/font-awesome/css/font-awesome.css" rel="stylesheet">
+        <link href="<?php echo base_url() ?>lib/Ionicons/css/ionicons.css" rel="stylesheet">
+        <link href="<?php echo base_url() ?>lib/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
+        <link href="<?php echo base_url() ?>lib/jquery-switchbutton/jquery.switchButton.css" rel="stylesheet">
+        <link href="<?php echo base_url() ?>lib/highlightjs/github.css" rel="stylesheet">
+        <link href="<?php echo base_url() ?>lib/datatables/jquery.dataTables.css" rel="stylesheet">
+        <link href="<?php echo base_url() ?>lib/select2/css/select2.min.css" rel="stylesheet">
 
         <!-- Bracket CSS -->
-        <link rel="stylesheet" href="../css/bracket.css">
+        <link rel="stylesheet" href="<?php echo base_url() ?>css/bracket.css">
     </head>
     <body>
 

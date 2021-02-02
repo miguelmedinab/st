@@ -29,7 +29,7 @@
             </div><!-- menu-item -->
         </a><!-- br-menu-link -->
         <ul class="br-menu-sub nav flex-column">            
-            <li class="nav-item"><a href="<?php echo base_url('inicio/actividad') ?>" class="nav-link <?php echo ($menuact == 3) ? 'active' : ''; ?>">Funcionario Supervisados</a></li>
+            <li class="nav-item"><a href="<?php echo base_url('inicio/listar_supervisados') ?>" class="nav-link <?php echo ($menuact == 3) ? 'active' : ''; ?>">Funcionario Supervisados</a></li>
         </ul> 
     </div><!-- br-sideleft-menu -->   
     <br>

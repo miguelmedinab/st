@@ -8,24 +8,21 @@
                 <thead>
                     <tr>
                         <th class="wd-5p">N°</th>
-                        <th class="wd-15p">Fecha</th>
-                        <!--<th class="wd-20p">Actividad</th>
-                        <th class="wd-15p">Avance</th>
-                        <th class="wd-10p">Resultado</th>
-                        <th class="wd-25p">Cumplimiento</th>-->
-                        <th class="wd-25p">Accion</th>
+                        <th class="wd-15p">Funcionario</th>
+                       
+                        <th class="wd-5p">Accion</th>
                     </tr>
                 </thead>
                 <tbody>
 
                     <?php
                     $n = 1;
-                    foreach ($fechas as $fecha):
+                    foreach ($supervisados as $supervisado):
                         ?>
                         <tr>
                             <td><?php echo $n ?></td>
-                            <td><?php echo strftime("%d-%m-%Y", strtotime($fecha['fecha_hora'])); ?></td>
-                            <td><a href="#" class="btn btn-success btn-icon"> <div><i class="fa fa-print"></i></div></a></td>                  
+                            <td><?php print_r($this->auth_ad->get_all_user_data($supervisado['supervisado'])['cn'][0]) ; ?></td>
+                            <td><a href="<?php echo base_url('inicio/lfs/').$supervisado['supervisado'] ?>" class="btn btn-info btn-icon"> <div><i class="fa fa-eye"></i></div></a></td>                  
                         </tr>
                         <?php
                         $n++;
