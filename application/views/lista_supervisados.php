@@ -22,7 +22,7 @@
                         <tr>
                             <td><?php echo $n ?></td>
                             <td><?php print_r($this->auth_ad->get_all_user_data($supervisado['supervisado'])['cn'][0]) ; ?></td>
-                            <td><a href="<?php echo base_url('inicio/lfs/').$supervisado['supervisado'] ?>" class="btn btn-info btn-icon"> <div><i class="fa fa-eye"></i></div></a></td>                  
+                            <td><a href="<?php echo base_url('inicio/lfs/').$supervisado['supervisado'].'/0' ?>" class="btn btn-info btn-icon"> <div><i class="fa fa-eye"></i></div></a></td>                  
                         </tr>
                         <?php
                         $n++;

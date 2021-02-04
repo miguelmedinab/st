@@ -44,10 +44,10 @@ $config['ad_domain'] = 'ine.gov.bo';
 $config['start_ou'] = '';
 
 // proxy_user: the (distinguished) username of the user that does the querying (AD generally does not allow anonymous binds) 
-$config['proxy_user'] = 'usuario@ine.gov.bo';
+$config['proxy_user'] = 'aplicaciones@ine.gov.bo';
 
 // proxy pass: the password for the proxy_user
-$config['proxy_pass'] = '123456';
+$config['proxy_pass'] = 'P@ssw0rdsit0$$$$';
 
 /* End of file auth_ad.php */
 /* Location: ./application/config/auth_ad.php */

@@ -54,9 +54,48 @@ class Inicio extends CI_Controller {
         header("Location: " . base_url());
     }
 
+    public function guardar_actividad() {
+
+        if (!is_null($this->session->userdata('username'))) {
+            $datos_actividad = array(
+                'actividad' => $this->input->post('actividad'),
+                'resultado' => $this->input->post('resultado'),
+                'avance' => $this->input->post('porcentaje'),
+                'medioverificacion' => $this->input->post('verificacion'),
+                'fecha' => '01-01-2020',
+                'usuario' => $this->session->userdata('username')
+            );
+            $this->db->insert('actividades', $datos_actividad);
+            header("Location: " . base_url('inicio/actividad'));
+        } else {
+            header("Location: " . base_url());
+        }
+    }
+
     /* public function guardar_actividad() {
 
       if (!is_null($this->session->userdata('username'))) {
+
+      $timezone = "America/La_Paz";
+      date_default_timezone_set($timezone);
+      $mi_archivo = 'file';
+
+      $config['upload_path'] = "uploads/";
+      $config['file_name'] = $this->input->post('verificacion');
+      $config['allowed_types'] = "*";
+      $config['max_size'] = "100000";
+      $config['overwrite'] = TRUE;
+      $this->load->library('upload', $config);
+
+      if (!$this->upload->do_upload($mi_archivo)) {
+      //*** ocurrio un error
+      $data['uploadError'] = $this->upload->display_errors();
+      echo $this->upload->display_errors();
+      return;
+      } else {
+      //$archivo = $_FILES['file']['name'];
+      //$trozos = explode(".", $archivo);
+      //$extension = end($trozos);
       $datos_actividad = array(
       'actividad' => $this->input->post('actividad'),
       'avance' => $this->input->post('porcentaje'),
@@ -65,58 +104,27 @@ class Inicio extends CI_Controller {
       'usuario' => $this->session->userdata('username')
       );
       $this->db->insert('actividades', $datos_actividad);
+      //$this->eventos->registrar('subida de imagen ' . $this->input->post('hr') . '-' . $this->input->post('gestion') . '_' . $fh . "." . $extension, $this->session->userdata('username'));
+      }
+
+      $data['uploadSuccess'] = $this->upload->data();
+
       header("Location: " . base_url('inicio/actividad'));
       } else {
       header("Location: " . base_url());
       }
       } */
 
-    public function guardar_actividad() {
-        //$sess = $this->session->userdata();
-        if (!is_null($this->session->userdata('username'))) {
-
-            $timezone = "America/La_Paz";
-            date_default_timezone_set($timezone);
-            $mi_archivo = 'file';
-            
-            $config['upload_path'] = "uploads/";
-            $config['file_name'] = $this->input->post('verificacion');
-            $config['allowed_types'] = "*";
-            $config['max_size'] = "100000";
-            $config['overwrite'] = TRUE;
-            $this->load->library('upload', $config);
-
-            if (!$this->upload->do_upload($mi_archivo)) {
-                //*** ocurrio un error
-                $data['uploadError'] = $this->upload->display_errors();
-                echo $this->upload->display_errors();
-                return;
-            } else {
-                //$archivo = $_FILES['file']['name'];
-                //$trozos = explode(".", $archivo);
-                //$extension = end($trozos);
-                $datos_actividad = array(
-                    'actividad' => $this->input->post('actividad'),
-                    'avance' => $this->input->post('porcentaje'),
-                    'medioverificacion' => $this->input->post('verificacion'),
-                    'fecha' => '01-01-2020',
-                    'usuario' => $this->session->userdata('username')
-                );
-                $this->db->insert('actividades', $datos_actividad);
-                //$this->eventos->registrar('subida de imagen ' . $this->input->post('hr') . '-' . $this->input->post('gestion') . '_' . $fh . "." . $extension, $this->session->userdata('username'));
-            }
-
-            $data['uploadSuccess'] = $this->upload->data();
-
-            header("Location: " . base_url('inicio/actividad'));
-        } else {
-            header("Location: " . base_url());
-        }
-    }
-
     public function eliminar_actividad($id) {
         if (!is_null($this->session->userdata('username'))) {
-            $this->db->delete('actividades', array('id' => $id));
+            //$this->db->delete('actividades', array('id' => $id));
+            $datos = array(
+                'estado' => 'f'
+            );
+
+            $this->db->where('id', $id);
+            $this->db->update('actividades', $datos);
+
             header("Location: " . base_url('inicio/actividad'));
         } else {
             header("Location: " . base_url());
@@ -133,7 +141,7 @@ class Inicio extends CI_Controller {
             header("Location: " . base_url());
         }
     }
-    
+
     public function listar_supervisados() {
         if (!is_null($this->session->userdata('username'))) {
             $data['contenido'] = 'lista_supervisados';
@@ -144,30 +152,47 @@ class Inicio extends CI_Controller {
             header("Location: " . base_url());
         }
     }
-    
-    public function lfs($funcionario) {
+
+    public function lfs($funcionario,$acordeon) {
         if (!is_null($this->session->userdata('username'))) {
             $data['contenido'] = 'acordeon_actividades';
             $data['menuact'] = 1;
             $data['funcionario'] = $funcionario;
-            $data['fechas'] = $this->M_admin->obtener_fechas_informe($funcionario);
+            $data['acordeon'] = $acordeon;
+            $data['fechas'] = $this->M_admin->obtener_informes2($funcionario);
             $this->load->view('plantilla/template', $data);
         } else {
             header("Location: " . base_url());
         }
     }
-    
-    public function ap_re($id_act) {
+
+    public function ap_re($id_act, $cumplimiento, $funcionario,$acordeon) {
         if (!is_null($this->session->userdata('username'))) {
-            //$data['contenido'] = 'acordeon_actividades';
-            //$data['menuact'] = 1;
-            //$data['funcionario'] = $funcionario;
-            //$data['fechas'] = $this->M_admin->obtener_fechas_informe($funcionario);
-            //$this->load->view('plantilla/template', $data);
+            if ($cumplimiento == 'f') {
+                $datos = array(
+                    'cumplimiento' => 't'
+                );
+            } else {
+                $datos = array(
+                    'cumplimiento' => 'f'
+                );
+            }
+            $this->db->where('id', $id_act);
+            $this->db->update('actividades', $datos);
+            header("Location: " . base_url('inicio/lfs/') . $funcionario.'/'.$acordeon);
         } else {
             header("Location: " . base_url());
         }
     }
-    
+
+    public function generar_informe($mes) {
+        if (!is_null($this->session->userdata('username'))) {
+
+            $data['act_men'] = $this->M_admin->obtener_actividades_mensuales($this->session->userdata('username'), $mes);
+            $this->load->view('inf_act_teletrab', $data);
+        } else {
+            header("Location: " . base_url());
+        }
+    }
 
 }
